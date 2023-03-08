@@ -4,14 +4,17 @@ TARGET=bin
 
 all: $(TARGET)
 
-bin: interactial.o calculation.o
-	$(CXX) interactial.o calculation.o -o $(TARGET)
+bin: main.o solve_equation.o input_output.o
+	$(CXX) main.o solve_equation.o input_output.o -o $(TARGET)
 
-interactial.o:
-	$(CXX) $(CXXFLAGS) interactial.c -o interactial.o
+main.o: main.c
+	$(CXX) $(CXXFLAGS) main.c -o main.o
 
-calculation.o:
-	$(CXX) $(CXXFLAGS) calculation.c -o calculation.o
+solve_equation.o: solve_equation.c
+	$(CXX) $(CXXFLAGS) solve_equation.c -o solve_equation.o
+
+input_output.o: input_output.c
+	$(CXX) $(CXXFLAGS) input_output.c -o input_output.o
 
 clean:
 	rm -rf *.o $(TARGET)
