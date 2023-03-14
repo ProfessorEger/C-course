@@ -1,18 +1,44 @@
 #ifndef SOLVE_EQUATION_H
 #define SOLVE_EQUATION_H
-#include <stdbool.h>
+#include "is_zero.h"
 
-typedef struct roots 
+typedef struct quadratic_equation_coefficients
 {
-    double _Complex x1;
-    double _Complex x2;
-} roots;
+	double a, b, c;
+} quadratic_equation_coefficients;
 
-static const double EPSILON = 1e-9;
+typedef struct linear_equation_coeficients
+{
+	double b, c;
+} linear_equation_coeficients;
+
+typedef struct quadratic_equation_solution
+{
+	double _Complex x1, x2;
+} quadratic_equation_solution;
+
+typedef struct linear_equation_solution
+{
+	double x;
+} linear_equation_solution;
+
+typedef struct solution
+{
+	int number_of_roots;
+	/*
+	Если number_of_roots =
+	1, 2: количество кроней
+	0	: корней нет
+	-1	: Корней бесконечно много
+	-2	: Корни неопределены
+	*/
+	double _Complex x1, x2;
+} solution;
+
 double _Complex clamp_to_zero(double _Complex x);
-roots solve_equation(double a, double b, double c);
-roots solve_quadratic(double a, double b, double c);
-roots solve_linear(double b, double c);
-bool is_zero(double x);
+solution solve_equation(quadratic_equation_coefficients coefficients);
+quadratic_equation_solution solve_quadratic(quadratic_equation_coefficients coefficients);
+linear_equation_solution solve_linear(linear_equation_coeficients coefficients);
+int edge_case_check(solution roots, quadratic_equation_coefficients coefficients);
 
-#endif 
+#endif

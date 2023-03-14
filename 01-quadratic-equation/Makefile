@@ -4,8 +4,8 @@ TARGET=bin
 
 all: $(TARGET)
 
-bin: main.o solve_equation.o input_output.o
-	$(CXX) main.o solve_equation.o input_output.o -o $(TARGET)
+bin: main.o solve_equation.o read_print.o is_zero.o
+	$(CXX) main.o solve_equation.o read_print.o is_zero.o -o $(TARGET)
 
 main.o: main.c
 	$(CXX) $(CXXFLAGS) main.c -o main.o
@@ -13,8 +13,11 @@ main.o: main.c
 solve_equation.o: solve_equation.c
 	$(CXX) $(CXXFLAGS) solve_equation.c -o solve_equation.o
 
-input_output.o: input_output.c
-	$(CXX) $(CXXFLAGS) input_output.c -o input_output.o
+read_print.o: read_print.c
+	$(CXX) $(CXXFLAGS) read_print.c -o read_print.o
+
+is_zero.o: is_zero.c
+	$(CXX) $(CXXFLAGS) is_zero.c -o is_zero.o
 
 clean:
 	rm -rf *.o $(TARGET)

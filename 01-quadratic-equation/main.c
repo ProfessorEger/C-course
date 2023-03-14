@@ -1,9 +1,9 @@
 #include "solve_equation.h"
-#include "input_output.h"
+#include "read_print.h"
 
 int main(void)
 {
-    coefficients coefficients = input();
-    roots roots = solve_equation(coefficients.a, coefficients.b, coefficients.c);
-    output(roots);
+	quadratic_equation_coefficients coefficients = read_coefficients();
+	solution roots = solve_equation(coefficients);
+	print_solution(roots);
 }
