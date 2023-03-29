@@ -1,0 +1,109 @@
+\hypertarget{solve__equation_8h}{}\doxysection{Файл solve\+\_\+equation.\+h}
+\label{solve__equation_8h}\index{solve\_equation.h@{solve\_equation.h}}
+
+
+Contain declarations of types and functions that used in solving equation.  
+
+
+\doxysubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structquadratic__equation__coefficients}{quadratic\+\_\+equation\+\_\+coefficients}}
+\begin{DoxyCompactList}\small\item\em Contain coefficients of quadratic equation. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structlinear__equation__coeficients}{linear\+\_\+equation\+\_\+coeficients}}
+\begin{DoxyCompactList}\small\item\em Contain linear equation coefficients. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structequation__solution}{equation\+\_\+solution}}
+\begin{DoxyCompactList}\small\item\em Contain solution of quadratic equation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Определения типов}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{solve__equation_8h_aa5af1ed422ab5758dba3233fbb32f64e}\label{solve__equation_8h_aa5af1ed422ab5758dba3233fbb32f64e}} 
+typedef struct \mbox{\hyperlink{structquadratic__equation__coefficients}{quadratic\+\_\+equation\+\_\+coefficients}} {\bfseries quadratic\+\_\+equation\+\_\+coefficients}
+\begin{DoxyCompactList}\small\item\em Contain coefficients of quadratic equation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{solve__equation_8h_aa6c7abc2a4c8329972fde66c54c3b96b}\label{solve__equation_8h_aa6c7abc2a4c8329972fde66c54c3b96b}} 
+typedef struct \mbox{\hyperlink{structlinear__equation__coeficients}{linear\+\_\+equation\+\_\+coeficients}} {\bfseries linear\+\_\+equation\+\_\+coeficients}
+\begin{DoxyCompactList}\small\item\em Contain linear equation coefficients. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{solve__equation_8h_a7e6206512a7b235563dde1ae402cd8a9}\label{solve__equation_8h_a7e6206512a7b235563dde1ae402cd8a9}} 
+typedef struct \mbox{\hyperlink{structequation__solution}{equation\+\_\+solution}} {\bfseries equation\+\_\+solution}
+\begin{DoxyCompactList}\small\item\em Contain solution of quadratic equation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Перечисления}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{solve__equation_8h_a6e571f01fc10ed195d196e64fd2d285e}\label{solve__equation_8h_a6e571f01fc10ed195d196e64fd2d285e}} 
+enum \mbox{\hyperlink{solve__equation_8h_a6e571f01fc10ed195d196e64fd2d285e}{number\+\_\+of\+\_\+roots}} \{ {\bfseries infinite\+\_\+number\+\_\+of\+\_\+roots} = -\/1
+, {\bfseries no\+\_\+roots}
+, {\bfseries one\+\_\+root}
+, {\bfseries two\+\_\+roots}
+ \}
+\begin{DoxyCompactList}\small\item\em Contain the number of roots. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structequation__solution}{equation\+\_\+solution}} \mbox{\hyperlink{solve__equation_8h_abd0e176067b40bfbfa955099d8194151}{solve\+\_\+equation}} (\mbox{\hyperlink{structquadratic__equation__coefficients}{quadratic\+\_\+equation\+\_\+coefficients}} coefficients)
+\begin{DoxyCompactList}\small\item\em Solve an equation with arbitrary coefficients. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structequation__solution}{equation\+\_\+solution}} \mbox{\hyperlink{solve__equation_8h_a1677c2a8c5bd1e1d249f7f0305119580}{solve\+\_\+quadratic}} (\mbox{\hyperlink{structquadratic__equation__coefficients}{quadratic\+\_\+equation\+\_\+coefficients}} coefficients)
+\begin{DoxyCompactList}\small\item\em Solve quadratic an equation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structequation__solution}{equation\+\_\+solution}} \mbox{\hyperlink{solve__equation_8h_ac530260855b5ee2e62e0ac249c44b7f3}{solve\+\_\+linear}} (\mbox{\hyperlink{structlinear__equation__coeficients}{linear\+\_\+equation\+\_\+coeficients}} coefficients)
+\begin{DoxyCompactList}\small\item\em Solve quadratic an equation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Contain declarations of types and functions that used in solving equation. 
+
+
+
+\doxysubsection{Функции}
+\mbox{\Hypertarget{solve__equation_8h_abd0e176067b40bfbfa955099d8194151}\label{solve__equation_8h_abd0e176067b40bfbfa955099d8194151}} 
+\index{solve\_equation.h@{solve\_equation.h}!solve\_equation@{solve\_equation}}
+\index{solve\_equation@{solve\_equation}!solve\_equation.h@{solve\_equation.h}}
+\doxysubsubsection{\texorpdfstring{solve\_equation()}{solve\_equation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structequation__solution}{equation\+\_\+solution}} solve\+\_\+equation (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structquadratic__equation__coefficients}{quadratic\+\_\+equation\+\_\+coefficients}}}]{coefficients }\end{DoxyParamCaption})}
+
+
+
+Solve an equation with arbitrary coefficients. 
+
+use solve\+\_\+quadratic or solve\+\_\+linear to solve a specific type of equation. 
+\begin{DoxyParams}{Аргументы}
+{\em coefficients} & contain coefficients of equation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+contain solution to equation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{solve__equation_8h_ac530260855b5ee2e62e0ac249c44b7f3}\label{solve__equation_8h_ac530260855b5ee2e62e0ac249c44b7f3}} 
+\index{solve\_equation.h@{solve\_equation.h}!solve\_linear@{solve\_linear}}
+\index{solve\_linear@{solve\_linear}!solve\_equation.h@{solve\_equation.h}}
+\doxysubsubsection{\texorpdfstring{solve\_linear()}{solve\_linear()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structequation__solution}{equation\+\_\+solution}} solve\+\_\+linear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structlinear__equation__coeficients}{linear\+\_\+equation\+\_\+coeficients}}}]{coefficients }\end{DoxyParamCaption})}
+
+
+
+Solve quadratic an equation. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em coefficients} & contain coefficients of equation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+contain solution to equation 
+\end{DoxyReturn}
+\mbox{\Hypertarget{solve__equation_8h_a1677c2a8c5bd1e1d249f7f0305119580}\label{solve__equation_8h_a1677c2a8c5bd1e1d249f7f0305119580}} 
+\index{solve\_equation.h@{solve\_equation.h}!solve\_quadratic@{solve\_quadratic}}
+\index{solve\_quadratic@{solve\_quadratic}!solve\_equation.h@{solve\_equation.h}}
+\doxysubsubsection{\texorpdfstring{solve\_quadratic()}{solve\_quadratic()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structequation__solution}{equation\+\_\+solution}} solve\+\_\+quadratic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structquadratic__equation__coefficients}{quadratic\+\_\+equation\+\_\+coefficients}}}]{coefficients }\end{DoxyParamCaption})}
+
+
+
+Solve quadratic an equation. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em coefficients} & contain coefficients of equation \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+contain solution to equation 
+\end{DoxyReturn}

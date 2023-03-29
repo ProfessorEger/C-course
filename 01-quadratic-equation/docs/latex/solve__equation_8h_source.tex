@@ -1,0 +1,38 @@
+\hypertarget{solve__equation_8h_source}{}\doxysection{solve\+\_\+equation.\+h}
+\mbox{\hyperlink{solve__equation_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ SOLVE\_EQUATION\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ SOLVE\_EQUATION\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structquadratic__equation__coefficients}{quadratic\_equation\_coefficients}}}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structquadratic__equation__coefficients_af9d0301528ee9f013023d896dec66eb4}{coefficient}}[3];}
+\DoxyCodeLine{00022\ \}\ \mbox{\hyperlink{structquadratic__equation__coefficients}{quadratic\_equation\_coefficients}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlinear__equation__coeficients}{linear\_equation\_coeficients}}}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structlinear__equation__coeficients_a841d14bed377e9d399b86d912fef6c8a}{coefficient}}[2];}
+\DoxyCodeLine{00035\ \}\ \mbox{\hyperlink{structlinear__equation__coeficients}{linear\_equation\_coeficients}};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ infinite\_number\_of\_roots\ =\ -\/1,}
+\DoxyCodeLine{00041\ \ \ \ \ no\_roots,}
+\DoxyCodeLine{00042\ \ \ \ \ one\_root,}
+\DoxyCodeLine{00043\ \ \ \ \ two\_roots}
+\DoxyCodeLine{00044\ \}\ \mbox{\hyperlink{solve__equation_8h_a6e571f01fc10ed195d196e64fd2d285e}{number\_of\_roots}};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structequation__solution}{equation\_solution}}}
+\DoxyCodeLine{00048\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{solve__equation_8h_a6e571f01fc10ed195d196e64fd2d285e}{number\_of\_roots}}\ \mbox{\hyperlink{structequation__solution_a46be6a70be9286e6ff07b8578dc27d5b}{number\_of\_roots}};\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{double}\ \_Complex\ \mbox{\hyperlink{structequation__solution_aeff56d2e736c333c33d77029441b9d33}{x}}[2];\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \}\ \mbox{\hyperlink{structequation__solution}{equation\_solution}};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00060\ \mbox{\hyperlink{structequation__solution}{equation\_solution}}\ \mbox{\hyperlink{solve__equation_8h_abd0e176067b40bfbfa955099d8194151}{solve\_equation}}(\mbox{\hyperlink{structquadratic__equation__coefficients}{quadratic\_equation\_coefficients}}\ coefficients);}
+\DoxyCodeLine{00067\ \mbox{\hyperlink{structequation__solution}{equation\_solution}}\ \mbox{\hyperlink{solve__equation_8h_a1677c2a8c5bd1e1d249f7f0305119580}{solve\_quadratic}}(\mbox{\hyperlink{structquadratic__equation__coefficients}{quadratic\_equation\_coefficients}}\ coefficients);}
+\DoxyCodeLine{00074\ \mbox{\hyperlink{structequation__solution}{equation\_solution}}\ \mbox{\hyperlink{solve__equation_8h_ac530260855b5ee2e62e0ac249c44b7f3}{solve\_linear}}(\mbox{\hyperlink{structlinear__equation__coeficients}{linear\_equation\_coeficients}}\ coefficients);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Quadratic equation: Исходный файл solve_equation.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Quadratic equation
+   </div>
+   <div id="projectbrief">Программа для решения произвольного квадратного уравнения</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">solve_equation.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="solve__equation_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef SOLVE_EQUATION_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define SOLVE_EQUATION_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="structquadratic__equation__coefficients.html">   10</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structquadratic__equation__coefficients.html">quadratic_equation_coefficients</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structquadratic__equation__coefficients.html#af9d0301528ee9f013023d896dec66eb4">   21</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structquadratic__equation__coefficients.html#af9d0301528ee9f013023d896dec66eb4">coefficient</a>[3];</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="solve__equation_8h.html#aa5af1ed422ab5758dba3233fbb32f64e">   22</a></span>} <a class="code hl_struct" href="structquadratic__equation__coefficients.html">quadratic_equation_coefficients</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structlinear__equation__coeficients.html">   25</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structlinear__equation__coeficients.html">linear_equation_coeficients</a></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structlinear__equation__coeficients.html#a841d14bed377e9d399b86d912fef6c8a">   34</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structlinear__equation__coeficients.html#a841d14bed377e9d399b86d912fef6c8a">coefficient</a>[2];</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="solve__equation_8h.html#aa6c7abc2a4c8329972fde66c54c3b96b">   35</a></span>} <a class="code hl_struct" href="structlinear__equation__coeficients.html">linear_equation_coeficients</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="solve__equation_8h.html#a6e571f01fc10ed195d196e64fd2d285e">   38</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    infinite_number_of_roots = -1,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    no_roots,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    one_root,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    two_roots</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>} <a class="code hl_enumeration" href="solve__equation_8h.html#a6e571f01fc10ed195d196e64fd2d285e">number_of_roots</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="structequation__solution.html">   47</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structequation__solution.html">equation_solution</a></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>{</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structequation__solution.html#a46be6a70be9286e6ff07b8578dc27d5b">   49</a></span>    <a class="code hl_enumeration" href="solve__equation_8h.html#a6e571f01fc10ed195d196e64fd2d285e">number_of_roots</a> <a class="code hl_variable" href="structequation__solution.html#a46be6a70be9286e6ff07b8578dc27d5b">number_of_roots</a>; </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="structequation__solution.html#aeff56d2e736c333c33d77029441b9d33">   50</a></span>    <span class="keywordtype">double</span> _Complex <a class="code hl_variable" href="structequation__solution.html#aeff56d2e736c333c33d77029441b9d33">x</a>[2];            </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="solve__equation_8h.html#a7e6206512a7b235563dde1ae402cd8a9">   51</a></span>} <a class="code hl_struct" href="structequation__solution.html">equation_solution</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><a class="code hl_struct" href="structequation__solution.html">equation_solution</a> <a class="code hl_function" href="solve__equation_8h.html#abd0e176067b40bfbfa955099d8194151">solve_equation</a>(<a class="code hl_struct" href="structquadratic__equation__coefficients.html">quadratic_equation_coefficients</a> coefficients);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><a class="code hl_struct" href="structequation__solution.html">equation_solution</a> <a class="code hl_function" href="solve__equation_8h.html#a1677c2a8c5bd1e1d249f7f0305119580">solve_quadratic</a>(<a class="code hl_struct" href="structquadratic__equation__coefficients.html">quadratic_equation_coefficients</a> coefficients);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><a class="code hl_struct" href="structequation__solution.html">equation_solution</a> <a class="code hl_function" href="solve__equation_8h.html#ac530260855b5ee2e62e0ac249c44b7f3">solve_linear</a>(<a class="code hl_struct" href="structlinear__equation__coeficients.html">linear_equation_coeficients</a> coefficients);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="asolve__equation_8h_html_a1677c2a8c5bd1e1d249f7f0305119580"><div class="ttname"><a href="solve__equation_8h.html#a1677c2a8c5bd1e1d249f7f0305119580">solve_quadratic</a></div><div class="ttdeci">equation_solution solve_quadratic(quadratic_equation_coefficients coefficients)</div><div class="ttdoc">Solve quadratic an equation.</div><div class="ttdef"><b>Definition:</b> solve_equation.c:28</div></div>
+<div class="ttc" id="asolve__equation_8h_html_a6e571f01fc10ed195d196e64fd2d285e"><div class="ttname"><a href="solve__equation_8h.html#a6e571f01fc10ed195d196e64fd2d285e">number_of_roots</a></div><div class="ttdeci">number_of_roots</div><div class="ttdoc">Contain the number of roots.</div><div class="ttdef"><b>Definition:</b> solve_equation.h:39</div></div>
+<div class="ttc" id="asolve__equation_8h_html_abd0e176067b40bfbfa955099d8194151"><div class="ttname"><a href="solve__equation_8h.html#abd0e176067b40bfbfa955099d8194151">solve_equation</a></div><div class="ttdeci">equation_solution solve_equation(quadratic_equation_coefficients coefficients)</div><div class="ttdoc">Solve an equation with arbitrary coefficients.</div><div class="ttdef"><b>Definition:</b> solve_equation.c:7</div></div>
+<div class="ttc" id="asolve__equation_8h_html_ac530260855b5ee2e62e0ac249c44b7f3"><div class="ttname"><a href="solve__equation_8h.html#ac530260855b5ee2e62e0ac249c44b7f3">solve_linear</a></div><div class="ttdeci">equation_solution solve_linear(linear_equation_coeficients coefficients)</div><div class="ttdoc">Solve quadratic an equation.</div><div class="ttdef"><b>Definition:</b> solve_equation.c:41</div></div>
+<div class="ttc" id="astructequation__solution_html"><div class="ttname"><a href="structequation__solution.html">equation_solution</a></div><div class="ttdoc">Contain solution of quadratic equation.</div><div class="ttdef"><b>Definition:</b> solve_equation.h:48</div></div>
+<div class="ttc" id="astructequation__solution_html_a46be6a70be9286e6ff07b8578dc27d5b"><div class="ttname"><a href="structequation__solution.html#a46be6a70be9286e6ff07b8578dc27d5b">equation_solution::number_of_roots</a></div><div class="ttdeci">number_of_roots number_of_roots</div><div class="ttdoc">contain the number of roots equation</div><div class="ttdef"><b>Definition:</b> solve_equation.h:49</div></div>
+<div class="ttc" id="astructequation__solution_html_aeff56d2e736c333c33d77029441b9d33"><div class="ttname"><a href="structequation__solution.html#aeff56d2e736c333c33d77029441b9d33">equation_solution::x</a></div><div class="ttdeci">double _Complex x[2]</div><div class="ttdoc">contain contain complex values of roots</div><div class="ttdef"><b>Definition:</b> solve_equation.h:50</div></div>
+<div class="ttc" id="astructlinear__equation__coeficients_html"><div class="ttname"><a href="structlinear__equation__coeficients.html">linear_equation_coeficients</a></div><div class="ttdoc">Contain linear equation coefficients.</div><div class="ttdef"><b>Definition:</b> solve_equation.h:26</div></div>
+<div class="ttc" id="astructlinear__equation__coeficients_html_a841d14bed377e9d399b86d912fef6c8a"><div class="ttname"><a href="structlinear__equation__coeficients.html#a841d14bed377e9d399b86d912fef6c8a">linear_equation_coeficients::coefficient</a></div><div class="ttdeci">double coefficient[2]</div><div class="ttdef"><b>Definition:</b> solve_equation.h:34</div></div>
+<div class="ttc" id="astructquadratic__equation__coefficients_html"><div class="ttname"><a href="structquadratic__equation__coefficients.html">quadratic_equation_coefficients</a></div><div class="ttdoc">Contain coefficients of quadratic equation.</div><div class="ttdef"><b>Definition:</b> solve_equation.h:11</div></div>
+<div class="ttc" id="astructquadratic__equation__coefficients_html_af9d0301528ee9f013023d896dec66eb4"><div class="ttname"><a href="structquadratic__equation__coefficients.html#af9d0301528ee9f013023d896dec66eb4">quadratic_equation_coefficients::coefficient</a></div><div class="ttdeci">double coefficient[3]</div><div class="ttdef"><b>Definition:</b> solve_equation.h:21</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
+</body>
+</html>

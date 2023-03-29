@@ -1,44 +1,76 @@
+/**
+ \file
+ \brief Contain declarations of types and functions that used in solving equation
+*/
+
 #ifndef SOLVE_EQUATION_H
 #define SOLVE_EQUATION_H
-#include "is_zero.h"
 
+/// Contain coefficients of quadratic equation
 typedef struct quadratic_equation_coefficients
 {
-	double a, b, c;
+	/**
+	 contain three real coefficients:
+
+	 coefficient[0] - coefficient at x^2;
+
+	 coefficient[1] - coefficient at x;
+
+	 coefficient[2] - free term.
+	 */
+	double coefficient[3];
 } quadratic_equation_coefficients;
 
+/// Contain linear equation coefficients
 typedef struct linear_equation_coeficients
 {
-	double b, c;
+	/**
+	 contain two real coefficients:
+
+	 coefficient[0] - coefficient at x;
+
+	 coefficient[2] - free term.
+	 */
+	double coefficient[2];
 } linear_equation_coeficients;
 
-typedef struct quadratic_equation_solution
+/// Contain the number of roots
+typedef enum
 {
-	double _Complex x1, x2;
-} quadratic_equation_solution;
+	infinite_number_of_roots = -1,
+	no_roots,
+	one_root,
+	two_roots
+} number_of_roots;
 
-typedef struct linear_equation_solution
+/// Contain solution of quadratic equation
+typedef struct equation_solution
 {
-	double x;
-} linear_equation_solution;
+	number_of_roots number_of_roots; ///< contain the number of roots equation
+	double _Complex x[2];			 ///< contain contain complex values of roots
+} equation_solution;
 
-typedef struct solution
-{
-	int number_of_roots;
-	/*
-	Если number_of_roots =
-	1, 2: количество кроней
-	0	: корней нет
-	-1	: Корней бесконечно много
-	-2	: Корни неопределены
-	*/
-	double _Complex x1, x2;
-} solution;
+/**
+ \brief Solve an equation with arbitrary coefficients
 
-double _Complex clamp_to_zero(double _Complex x);
-solution solve_equation(quadratic_equation_coefficients coefficients);
-quadratic_equation_solution solve_quadratic(quadratic_equation_coefficients coefficients);
-linear_equation_solution solve_linear(linear_equation_coeficients coefficients);
-int edge_case_check(solution roots, quadratic_equation_coefficients coefficients);
+ use solve_quadratic or solve_linear to solve a specific type of equation.
+ \param coefficients contain coefficients of equation
+ \return contain solution to equation
+*/
+equation_solution solve_equation(quadratic_equation_coefficients coefficients);
+/**
+ \brief Solve quadratic an equation
+
+ \param coefficients contain coefficients of equation
+ \return contain solution to equation
+*/
+equation_solution solve_quadratic(quadratic_equation_coefficients coefficients);
+/**
+ \brief Solve quadratic an equation
+
+ \param coefficients contain coefficients of equation
+ \return contain solution to equation
+*/
+equation_solution solve_linear(linear_equation_coeficients coefficients);
 
 #endif
