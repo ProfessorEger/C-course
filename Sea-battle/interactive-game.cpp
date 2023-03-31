@@ -1,6 +1,7 @@
 #include "interactive-game.h"
 #include <stdio.h>
 #include <ctype.h>
+#include <time.h>
 
 void print_battlefield(field battlefield)
 {
@@ -177,7 +178,7 @@ void print_shot(short shot, bool this_is_player_field)
 			printf(" - Мимо!\nМой ход...\n");
 		break;
 	case hit:
-			if (this_is_player_field)
+		if (this_is_player_field)
 			printf(" - Папал!\nМой ход...\n");
 		else
 			printf(" - Попал!\nВаш ход...\n");
@@ -190,14 +191,25 @@ void print_shot(short shot, bool this_is_player_field)
 		break;
 
 	default:
-	printf("- Удачной игры!\nВаш ход...\n");
+		printf("- Удачной игры!\nВаш ход...\n");
 		break;
 	}
 }
 
 void print_coordinates_shot(coordinates shot)
 {
-	char letter_coordinate = 65 + shot.coordinate[0];
-	short number_coordinate = shot.coordinate[1] + 1;
+	char letter_coordinate = 65 +  shot.coordinate[1]; 
+	short number_coordinate =shot.coordinate[0] + 1;
 	printf(" - %c%hd\n", letter_coordinate, number_coordinate);
+}
+
+
+void print_game_over(field enemy_battlefield, field player_battlefield, bool win)
+{
+		enemy_battlefield.visible = true;
+		print_game(enemy_battlefield, player_battlefield);
+		if (win)
+		printf(" - Убил!\n\nПОБЕДА!\n\n");
+		else
+		printf(" - Убил!\nПОРАЖЕНИЕ\n\n");
 }

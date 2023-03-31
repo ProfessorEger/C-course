@@ -206,6 +206,8 @@ number_ships generete_number_ships(short size)
 {
 	number_ships number_ships;
 	number_ships.ship[3] = (size / 5) - 1;
+	if (number_ships.ship[3] < 0)
+		number_ships.ship[3] = 0;
 	number_ships.ship[2] = size / 4;
 	number_ships.ship[1] = size / 3;
 	number_ships.ship[0] = size / 2.5;

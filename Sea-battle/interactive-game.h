@@ -8,5 +8,7 @@ short read_size();
 void print_game(field enemy_battlefield, field player_battlefield);
 void print_shot(short shot, bool this_is_player_field);
 void print_coordinates_shot(coordinates shot);
+void print_game_win(field enemy_battlefield, field player_battlefield);
+void print_game_over(field enemy_battlefield, field player_battlefield, bool win);
 
 #endif

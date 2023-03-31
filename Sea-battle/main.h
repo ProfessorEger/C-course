@@ -2,6 +2,7 @@
 #define MAIN_H
 
 const short MAX_SIZE = 52;
+const int SECOND = 1000000;
 
 typedef enum
 {
