@@ -1,0 +1,79 @@
+test_solve_equation
+
+coeficients: 12.656 -7.875 76.579
+x1: 0.311117256637 -2.440084423635i
+x2: 0.311117256637 +2.440084423635i
+number_of_roots: 2
+
+coeficients: 1 4 4
+x1: -2 0i
+x2: nan nani
+number_of_roots: 1
+
+coeficients: 0 3 8
+x1: -2.666666666667 0i
+x2: nan nani
+number_of_roots: 1
+
+coeficients: 0 0 -3
+x1: nan nani
+x2: nan nani
+number_of_roots: 0
+
+coeficients: 0 0 0
+x1: nan nani
+x2: nan nani
+number_of_roots: -1
+
+end_test
+
+test_solve_quadratic
+
+coeficients: 12.656 -7.875 76.579
+x1: 0.311117256637 -2.440084423635i
+x2: 0.311117256637 +2.440084423635i
+number_of_roots: 2
+
+coeficients: -3 4.56 7.9004
+x1: 2.551944939630 0i
+x2: -1.031944939630 0i
+number_of_roots: 2
+
+coeficients: 7 0 3
+x1: 0 -0.654653670708i
+x2: 0 0.654653670708i
+number_of_roots: 2
+
+coeficients: -9 0 0
+x1: 0 0i
+x2: nan nani
+number_of_roots: 1
+
+coeficients: 1 4 4
+x1: -2 0i
+x2: nan nani
+number_of_roots: 1
+
+end_test
+
+test_solve_linear
+
+coeficients: 46.785 -763.097
+x: 16.310719247622
+number_of_roots: 1
+
+coeficients: -3467.98 0
+x: 0
+number_of_roots: 1
+
+coeficients: 0 8
+x: nan
+number_of_roots: 0
+
+coeficients: 0 0
+x: nan
+number_of_roots: -1
+
+end_test
+
+complete_tests

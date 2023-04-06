@@ -46,12 +46,9 @@ void print_roots(equation_solution roots)
 	printf("solution: (");
 	for (int i = 0; i < roots.number_of_roots; i++)
 	{
-		if (!is_zero(creal(roots.x[i])))
-			printf("%.3lf", creal(roots.x[i]));
+		printf("%.3lf", creal(roots.x[i]));
 		if (!is_zero(creal(roots.x[i])) && !is_zero(cimag(roots.x[i])))
 			printf(" %+.3lfi", cimag(roots.x[i]));
-		else if (is_zero(creal(roots.x[i])) && !is_zero(cimag(roots.x[i])))
-			printf("%.3lfi", cimag(roots.x[i]));
 		if (i + 1 < roots.number_of_roots)
 			printf(", ");
 	}
