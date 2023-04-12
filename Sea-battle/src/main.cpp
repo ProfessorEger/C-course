@@ -1,6 +1,7 @@
 #include "main.h"
 #include "interactive-game.h"
 #include "game-calculate.h"
+#include "field_generete.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
@@ -75,14 +76,14 @@ int main(void)
 			print_coordinates_shot(enemy_shot);
 			player_battlefield = check_shot(enemy_shot, player_battlefield);
 			usleep(1.3 * SECOND);
-			print_game(enemy_battlefield, player_battlefield);
-			usleep(0.9 * SECOND);
-			if (enemy_battlefield.shot == kill)
+			if (player_battlefield.shot == kill)
 			{
 				enemy_kills++;
 				if (enemy_kills == total_ships)
 					break;
 			}
+			print_game(enemy_battlefield, player_battlefield);
+			usleep(0.9 * SECOND);
 			if (player_battlefield.shot != miss)
 				print_shot(player_battlefield.shot, player_battlefield.this_is_player_field);
 

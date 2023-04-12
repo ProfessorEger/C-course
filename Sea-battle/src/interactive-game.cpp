@@ -1,4 +1,5 @@
 #include "interactive-game.h"
+#include "ansi-colors.h"
 #include <stdio.h>
 #include <ctype.h>
 #include <time.h>
@@ -76,18 +77,18 @@ void print_battlefield(field battlefield)
 						break;
 					case ship:
 						if (battlefield.visible)
-							printf("◻");
+							printf(TEXT_LIGHT_BLUE("◻"));
 						else
 							printf(" ");
 						break;
 					case hit:
-						printf("☒");
+						printf(TEXT_PUROLE("☒"));
 						break;
 					case kill:
-						printf("◼");
+						printf(TEXT_RED("◼"));
 						break;
 					case miss:
-						printf("·");
+						printf(TEXT_GREEN("·"));
 						break;
 					default:
 						symbol_battlefield[i][j] = '%';
@@ -179,37 +180,58 @@ void print_shot(short shot, bool this_is_player_field)
 		break;
 	case hit:
 		if (this_is_player_field)
-			printf(" - Папал!\nМой ход...\n");
+		{
+			printf(TEXT_BACKGROUND_PURPLE(" - Попал!"));
+			printf("\nМой ход...\n");
+		}
 		else
-			printf(" - Попал!\nВаш ход...\n");
+		{
+			printf(TEXT_BACKGROUND_BLUE(" - Попал!"));
+			printf("\nВаш ход...\n");
+		}
 		break;
 	case kill:
 		if (this_is_player_field)
-			printf(" - Убил!\nМой ход...\n");
+		{
+			printf(TEXT_BACKGROUND_RED(" - Убил!"));
+			printf("\nМой ход...\n");
+		}
 		else
-			printf(" - Убил!\nВаш ход...\n");
+		{
+			printf(TEXT_BACKGROUND_GREEN(" - Убил!"));
+			printf("\nВаш ход...\n");
+		}
 		break;
 
 	default:
-		printf("- Удачной игры!\nВаш ход...\n");
+		printf(("- Удачной игры!\nВаш ход...\n"));
 		break;
 	}
 }
 
 void print_coordinates_shot(coordinates shot)
 {
-	char letter_coordinate = 65 +  shot.coordinate[1]; 
-	short number_coordinate =shot.coordinate[0] + 1;
+	char letter_coordinate = 65 + shot.coordinate[1];
+	short number_coordinate = shot.coordinate[0] + 1;
 	printf(" - %c%hd\n", letter_coordinate, number_coordinate);
 }
 
-
 void print_game_over(field enemy_battlefield, field player_battlefield, bool win)
 {
-		enemy_battlefield.visible = true;
-		print_game(enemy_battlefield, player_battlefield);
-		if (win)
-		printf(" - Убил!\n\nПОБЕДА!\n\n");
-		else
-		printf(" - Убил!\nПОРАЖЕНИЕ\n\n");
+	enemy_battlefield.visible = true;
+	print_game(enemy_battlefield, player_battlefield);
+	if (win)
+	{
+		printf(TEXT_BACKGROUND_GREEN(" - Убил!"));
+		printf("\n\n");
+		printf(TEXT_GREEN("ПОБЕДА!"));
+		printf("\n\n");
+	}
+	else
+	{
+		printf(TEXT_BACKGROUND_RED(" - Убил!"));
+		printf("\n\n");
+		printf(TEXT_RED("ПОРАЖЕНИЕ"));
+		printf("\n\n");
+	}
 }

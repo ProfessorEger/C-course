@@ -6,6 +6,14 @@ const int SECOND = 1000000;
 
 typedef enum
 {
+	up,
+	right,
+	down,
+	left
+} direction;
+
+typedef enum
+{
 	empty, // 0 - пусто
 	ship,  // 1 - корабль
 	hit,   // 2 - попал
