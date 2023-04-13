@@ -3,7 +3,6 @@
 #include "game-calculate.h"
 #include "field_generete.h"
 #include <stdlib.h>
-#include <stdio.h>
 #include <time.h>
 #include <unistd.h>
 

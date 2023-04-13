@@ -88,7 +88,7 @@ void print_battlefield(field battlefield)
 						printf(TEXT_RED("◼"));
 						break;
 					case miss:
-						printf(TEXT_GREEN("·"));
+						printf("·");
 						break;
 					default:
 						symbol_battlefield[i][j] = '%';
