@@ -63,7 +63,7 @@ coordinates finish_off_ship(coordinates shot, field battlefield)
 		else
 			orientation++;
 
-		printf("orientation = %hd\n", orientation);
+		//printf("orientation = %hd\n", orientation);
 
 		if (shot.coordinate[0] == 0 && orientation == up) // Проверка границы карты
 			continue;
@@ -267,7 +267,7 @@ coordinates finish_off_ship(coordinates shot, field battlefield)
 			orientation = right;
 			break;
 		}
-		printf("orientation №2 = %hd\n", orientation);
+		//printf("orientation №2 = %hd\n", orientation);
 		i++;
 	}
 
