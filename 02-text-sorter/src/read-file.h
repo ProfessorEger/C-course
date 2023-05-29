@@ -13,7 +13,7 @@ typedef struct substring
 typedef struct text
 {
 	substring *text_array;
-	int number_of_string;
+	int number_of_strings;
 }text;
 
 FILE *open_file(const char *file_name);

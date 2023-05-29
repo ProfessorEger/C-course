@@ -24,8 +24,9 @@ $(TARGET): $(OBJECTS) | $(BIN_DIR)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
+FILE = not-original-text.txt #temp
 start: $(TARGET)
-	cd $(BIN_DIR) && ./bin
+	./$(TARGET) $(FILE) sorted-text.txt
 
 test: $(TARGET_TEST)
 	cd $(BIN_DIR) && ./$(TEST)
