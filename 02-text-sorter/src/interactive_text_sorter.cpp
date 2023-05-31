@@ -21,6 +21,13 @@ bool handle_input_argument(int argc, char *argv[])
 	return false;
 }
 
+void print_in_file(FILE *file, text *text)
+{
+	for (int i=0;i < (*text).number_of_strings; i++)
+		fwprintf(file, L"%ls\n", (*text).text_array[i].dynamic_string);
+}
+
+
 void print_text_array (int messege_code, text *text) //temp
 {
 	switch (messege_code)
@@ -34,7 +41,5 @@ void print_text_array (int messege_code, text *text) //temp
 	}
 
 	for (int i=0;i < (*text).number_of_strings; i++) // temp (вывод файла в консоль)
-	{
 		wprintf(L"№%-7d %ls\n", (*text).text_array[i].string_number, (*text).text_array[i].dynamic_string);
-	}
 }
