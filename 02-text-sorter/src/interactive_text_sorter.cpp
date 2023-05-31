@@ -26,7 +26,7 @@ void print_text_array (int messege_code, text *text) //temp
 	switch (messege_code)
 	{
 	case 0:
-		wprintf(L"original_text:\n\n");
+		wprintf(L"\noriginal_text:\n\n");
 		break;
 	default:
 		wprintf(L"\nsort №%-2d\n\n", messege_code);

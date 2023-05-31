@@ -22,8 +22,15 @@ int main(int argc, char *argv[])
 	print_text_array(0, &source_text);
 
 	sort_text_array(&source_text);
-
 	print_text_array(1, &source_text);
 	
+	reverse_substrings_in_text(&source_text);
+	sort_text_array(&source_text);
+	reverse_substrings_in_text(&source_text);
+	print_text_array(2, &source_text);
+
+	retutn_original(&source_text);
+	print_text_array(0, &source_text);
+
 	return 0;
 }

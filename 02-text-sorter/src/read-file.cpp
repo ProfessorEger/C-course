@@ -4,17 +4,17 @@
 
 FILE *open_file(const char *file_name)
 {
-	FILE *file;
-	if ((file = fopen(file_name, "r")) == NULL)
+	FILE *file = fopen(file_name, "r");
+	if (file == NULL)
 		return NULL;
 	return file;
 }
 
-void read_file(text *text, FILE *file) // лучшe возвращать true, в случае ошибки считывания false.
+void read_file(text *text, FILE *file)
 {
 	int number_of_lines = 0;
 	int dedicated_lines = 1;
-	while (feof(file) == 0)
+	while (!feof(file))
 	{
 		number_of_lines++;
 		if (dedicated_lines <= number_of_lines)
@@ -27,36 +27,35 @@ void read_file(text *text, FILE *file) // лучшe возвращать true, �
 	}
 	fclose(file);
 	(*text).number_of_strings = number_of_lines;
-	// Нужно ли ставить в последний символ массива '\0'?
+
 	if (dedicated_lines > number_of_lines)
 		(*text).text_array = (substring *)realloc((*text).text_array, number_of_lines * sizeof(substring));
 }
 
-substring read_string_in_file(FILE *file) // сделать через указатель на substring
+substring read_string_in_file(FILE *file)
 {
 	int number_of_char = 0;
-	unsigned string_size = 8;
+	int string_size = 8;
 	wchar_t buffer_char = '\0';
-	wchar_t *str; // записывать сразу в substring ?
-	str = (wchar_t *)malloc(string_size);
-	while (buffer_char != '\n' && feof(file) == 0)
+	wchar_t *str = (wchar_t *)malloc(string_size * sizeof(wchar_t)); //лучше записывать в substring?
+	while (buffer_char != L'\n' && !feof(file))
 	{
-		if (string_size <= (number_of_char + 1) * sizeof(buffer_char))
+		if (string_size <= (number_of_char + 1))
 		{
 			string_size = string_size * 2;
-			str = (wchar_t *)realloc(str, string_size);
+			str = (wchar_t *)realloc(str, string_size * sizeof(wchar_t));
 		}
 
 		fwscanf(file, L"%lc", &buffer_char);
-		if (buffer_char == '\n' || feof(file) != 0)
+		if (buffer_char == L'\n' || feof(file))
 			break;
 
 		str[number_of_char] = buffer_char;
 		number_of_char++;
 	}
 	str[number_of_char] = L'\0';
-	str = (wchar_t *)realloc(str, number_of_char * sizeof(buffer_char));
-	substring substring = {.string_size = number_of_char, .dynamic_string = str};
+	str = (wchar_t *)realloc(str, (number_of_char + 1) * sizeof(wchar_t));
+	substring sub = {.string_size = number_of_char, .dynamic_string = str};
 
-	return substring;
+	return sub;
 }
