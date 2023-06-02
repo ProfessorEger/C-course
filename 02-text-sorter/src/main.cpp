@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 	print_in_file(finished_file, &source_text);
 	print_text_array(2, &source_text);//temp
 
-	retutn_original(&source_text);
+	return_original(&source_text);
 	print_in_file(finished_file, &source_text);
 	print_text_array(0, &source_text);//temp
 

@@ -38,16 +38,16 @@ void reverse_substring(substring *substring)
 	}
 }
 
-void retutn_original(text *text) // Задача о 100 заключенных
+void return_original(text *text) // Задача о 100 заключенных
 {
-	qsort((*text).text_array, (*text).number_of_strings, sizeof(substring), return_compare_substring);
+	substring buffer_substring = (*text).text_array[0];
+	for (int i = 0; i < (*text).number_of_strings; i++)
+	{
+		while ((*text).text_array[i].string_number - 1 != i)
+		{
+			buffer_substring = (*text).text_array[i];
+			(*text).text_array[i] = (*text).text_array[buffer_substring.string_number - 1];
+			(*text).text_array[buffer_substring.string_number - 1] = buffer_substring;
+		}
+	}
 }
-
-int return_compare_substring(const void *a, const void *b)
-{
-	const substring *substring_a = (const substring *)a;
-	const substring *substring_b = (const substring *)b;
-
-	return (*substring_a).string_number - (*substring_b).string_number;
-}
-

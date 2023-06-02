@@ -24,9 +24,10 @@ $(TARGET): $(OBJECTS) | $(BIN_DIR)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-FILE = not-original-text.txt #temp
+FILE_SRC = not-original-text.txt #temp
+FILE_SORT = sotred-file.txt
 start: $(TARGET)
-	./$(TARGET) $(FILE) sorted-text.txt
+	./$(TARGET) $(FILE_SRC) $(FILE_SORT)
 
 test: $(TARGET_TEST)
 	cd $(BIN_DIR) && ./$(TEST)
@@ -50,7 +51,7 @@ $(BIN_DIR)/$(TEST_DIR):
 	mkdir $(BIN_DIR)/$(TEST_DIR)
 
 clean:
-	rm -rf $(OBJ_DIR) $(BIN_DIR)
+	rm -rf $(OBJ_DIR) $(BIN_DIR) $(FILE_SORT)
 
 clean.o:
 	rm -rf $(OBJ_DIR)

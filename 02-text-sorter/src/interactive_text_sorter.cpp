@@ -41,5 +41,5 @@ void print_text_array (int messege_code, text *text) //temp
 	}
 
 	for (int i=0;i < (*text).number_of_strings; i++) // temp (вывод файла в консоль)
-		wprintf(L"№%-7d %ls\n", (*text).text_array[i].string_number, (*text).text_array[i].dynamic_string);
+		wprintf(L"%4d:    №%-4d    %ls\n",i+1 ,(*text).text_array[i].string_number, (*text).text_array[i].dynamic_string);
 }
