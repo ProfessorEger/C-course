@@ -24,7 +24,7 @@ bool handle_input_argument(int argc, char *argv[])
 void print_in_file(FILE *file, text *text)
 {
 	for (int i=0;i < (*text).number_of_strings; i++)
-		fwprintf(file, L"%ls\n", (*text).text_array[i].dynamic_string);
+		fwprintf(file, L"%ls\n", (*text).text_array[i].line);
 }
 
 
@@ -41,5 +41,5 @@ void print_text_array (int messege_code, text *text) //temp
 	}
 
 	for (int i=0;i < (*text).number_of_strings; i++) // temp (вывод файла в консоль)
-		wprintf(L"%4d:    №%-4d    %ls\n",i+1 ,(*text).text_array[i].string_number, (*text).text_array[i].dynamic_string);
+		wprintf(L"%4d:    №%-4d    %ls\n",i+1 ,(*text).text_array[i].line_number, (*text).text_array[i].line);
 }

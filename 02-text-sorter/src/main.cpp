@@ -12,15 +12,16 @@ int main(int argc, char *argv[])
 		return 1;
 	char *source_file_name = argv[1];
 	char *finished_file_name = argv[2];
-	
-	FILE *source_file = open_file(source_file_name);
-	print_opening_file_result (source_file, argv);
+/*	print_opening_file_result (source_file, argv);
 	if (source_file == NULL) 
 		return 1;
-	
+*/	
+	wchar_t* text_str = NULL;
 	text source_text = {.text_array = NULL, .number_of_strings = 0};
-	read_file(&source_text, source_file);
-
+	read_file(&text_str, &source_text, source_file_name);
+	wprintf(L"\n2:\n%ls", text_str);
+	print_text_array(0, &source_text);//temp
+/*
 	print_text_array(0, &source_text);//temp
 
 	FILE *finished_file = fopen(finished_file_name, "w");
@@ -38,6 +39,6 @@ int main(int argc, char *argv[])
 	return_original(&source_text);
 	print_in_file(finished_file, &source_text);
 	print_text_array(0, &source_text);//temp
-
+*/
 	return 0;
 }
