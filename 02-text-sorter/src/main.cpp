@@ -19,9 +19,8 @@ int main(int argc, char *argv[])
 	wchar_t* text_str = NULL;
 	text source_text = {.text_array = NULL, .number_of_strings = 0};
 	read_file(&text_str, &source_text, source_file_name);
-	wprintf(L"\n2:\n%ls", text_str);
-	print_text_array(0, &source_text);//temp
-/*
+
+
 	print_text_array(0, &source_text);//temp
 
 	FILE *finished_file = fopen(finished_file_name, "w");
@@ -39,6 +38,6 @@ int main(int argc, char *argv[])
 	return_original(&source_text);
 	print_in_file(finished_file, &source_text);
 	print_text_array(0, &source_text);//temp
-*/
+
 	return 0;
 }
