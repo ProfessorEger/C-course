@@ -9,6 +9,7 @@ void read_file(wchar_t **text_str, text *text, char *file_name)
 	FILE *source_file = fopen(file_name, "r");
 	allocate_memory_for_file(file_name, text_str);
 	read_text(source_file, text_str);
+	fclose(source_file);
 	split_into_lines(text, text_str);
 }
 

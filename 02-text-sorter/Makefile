@@ -24,7 +24,7 @@ $(TARGET): $(OBJECTS) | $(BIN_DIR)
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) $< -o $@
 
-FILE_SRC = not-original-text.txt #temp
+FILE_SRC = not-original-text.txt#temp
 FILE_SORT = sotred-file.txt
 start: $(TARGET)
 	./$(TARGET) $(FILE_SRC) $(FILE_SORT)
