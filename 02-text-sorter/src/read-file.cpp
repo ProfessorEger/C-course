@@ -3,29 +3,49 @@
 #include <stdlib.h>
 #include <sys/stat.h>
 
-void read_file(wchar_t **text_str, text *text, char *file_name)
+void read_file(wchar_t **text_str, text *text, char *file_name, string_buffer *error_buffer)
 {
-
-	FILE *source_file = fopen(file_name, "r");
-	allocate_memory_for_file(file_name, text_str);
-	read_text(source_file, text_str);
-	fclose(source_file);
+	FILE *source_file = my_fopen(file_name, "r", error_buffer);
+	allocate_memory_for_file(file_name, text_str, error_buffer);
+	read_text(source_file, text_str, error_buffer);
+	if(source_file != NULL)
+		fclose(source_file);
 	split_into_lines(text, text_str);
 }
 
-unsigned allocate_memory_for_file(char *file_name, wchar_t **text_str)
+FILE *my_fopen(const char *file_name, const char *mode, string_buffer *error_buffer)
 {
-	struct stat file_stat;
-	if (stat(file_name, &file_stat) < 0)
-		return 0;
-	*text_str = (wchar_t *)malloc((file_stat.st_size + 1) * sizeof(wchar_t));
-	return file_stat.st_size / sizeof(wchar_t);
+
+	FILE *source_file = fopen(file_name, mode);
+	if(source_file != NULL)
+		return source_file;
+	
+	char error_message[error_buffer->string_size];
+	snprintf(error_message, sizeof(error_message) - sizeof(char), "textsorter: cannot stat '%s': Unable to open file", file_name);
+	add_string(error_buffer, error_message);
+	return source_file;
 }
 
-void read_text(FILE *file, wchar_t **text_str)
+void allocate_memory_for_file(char *file_name, wchar_t **text_str, string_buffer *error_buffer)
 {
-	int i = 0;
+	char error_message[error_buffer->string_size];
+	struct stat file_stat;
+	if (stat(file_name, &file_stat) != 0)
+		snprintf(error_message, sizeof(error_message) - sizeof(char), "textsorter: cannot stat '%s': No such file", file_name);
+	else
+		*text_str = (wchar_t *)malloc((file_stat.st_size + 1) * sizeof(wchar_t));
+	if(text_str == NULL)
+		snprintf(error_message, sizeof(error_message) - sizeof(char), "textsorter: failed to allocate memory");
 
+	add_string(error_buffer, error_message);
+}
+
+void read_text(FILE *file, wchar_t **text_str, string_buffer *error_buffer)
+{
+	if(file == NULL)
+		return;
+	
+	int i = 0;
 	while (!feof(file))
 	{
 		fwscanf(file, L"%lc", &(*text_str)[i]);
@@ -33,10 +53,16 @@ void read_text(FILE *file, wchar_t **text_str)
 	}
 	(*text_str)[i] = L'\0';
 	*text_str = (wchar_t *)realloc(*text_str, (i + 1) * sizeof(wchar_t));
+
+	if(text_str == NULL)
+		add_string(error_buffer, "textsorter: failed to allocate memory");
 }
 
 void split_into_lines(text *text, wchar_t **text_str)
 {
+	if(*text_str == NULL)
+		return;
+
 	int line_number = 0;
 	int line_size = 0;
 	wchar_t *pointer_to_line = *text_str;

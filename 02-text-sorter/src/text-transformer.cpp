@@ -4,6 +4,8 @@
 
 void sort_text_array(text *text)
 {
+	if(text->text_array == NULL)
+		return;
 	qsort((*text).text_array, (*text).number_of_strings, sizeof(substring), compare_substring);
 }
 
@@ -23,6 +25,8 @@ int compare_substring(const void *a, const void *b)
 
 void reverse_substrings_in_text(text *text)
 {
+	if(text->text_array == NULL)
+		return;
 	for (int i = 0; i <= (*text).number_of_strings; i++)
 		reverse_substring(&(*text).text_array[i]);
 }
@@ -38,8 +42,10 @@ void reverse_substring(substring *substring)
 	}
 }
 
-void return_original(text *text) // Задача о 100 заключенных
+void return_original(text *text)
 {
+	if(text->text_array == NULL)
+		return;
 	substring buffer_substring = (*text).text_array[0];
 	for (int i = 0; i < (*text).number_of_strings; i++)
 	{

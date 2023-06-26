@@ -2,12 +2,11 @@
 #define INTERACTIVE_TEXT_SORTING_H
 
 #include "read-file.h"
+#include "free-string-list.h"
 #include <stdio.h>
 
 
-bool handle_input_argument (int argc, char *argv[]);
-void print_opening_file_result (FILE *file, char *argv[]);
+bool handle_input_argument (int argc, char *argv[], string_buffer *error_buffer);
 void print_in_file(FILE *file, text *text);
-void print_text_array (int messege_code, text *text); //temp
 
 #endif
