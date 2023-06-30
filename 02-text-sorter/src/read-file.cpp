@@ -22,7 +22,7 @@ FILE *my_fopen(const char *file_name, const char *mode, string_buffer *error_buf
 	
 	char error_message[error_buffer->string_size];
 	snprintf(error_message, sizeof(error_message) - sizeof(char), "textsorter: cannot stat '%s': Unable to open file", file_name);
-	add_string(error_buffer, error_message);
+	add_string(error_buffer, error_message, 2);
 	return source_file;
 }
 
@@ -31,13 +31,14 @@ void allocate_memory_for_file(char *file_name, wchar_t **text_str, string_buffer
 	char error_message[error_buffer->string_size];
 	struct stat file_stat;
 	if (stat(file_name, &file_stat) != 0)
+	{
 		snprintf(error_message, sizeof(error_message) - sizeof(char), "textsorter: cannot stat '%s': No such file", file_name);
+		add_string(error_buffer, error_message, 2);
+	}
 	else
 		*text_str = (wchar_t *)malloc((file_stat.st_size + 1) * sizeof(wchar_t));
 	if(text_str == NULL)
-		snprintf(error_message, sizeof(error_message) - sizeof(char), "textsorter: failed to allocate memory");
-
-	add_string(error_buffer, error_message);
+		add_string(error_buffer, "textsorter: failed to allocate memory", 12);
 }
 
 void read_text(FILE *file, wchar_t **text_str, string_buffer *error_buffer)
@@ -55,7 +56,7 @@ void read_text(FILE *file, wchar_t **text_str, string_buffer *error_buffer)
 	*text_str = (wchar_t *)realloc(*text_str, (i + 1) * sizeof(wchar_t));
 
 	if(text_str == NULL)
-		add_string(error_buffer, "textsorter: failed to allocate memory");
+		add_string(error_buffer, "textsorter: failed to allocate memory", 12);
 }
 
 void split_into_lines(text *text, wchar_t **text_str)

@@ -12,7 +12,7 @@ bool handle_input_argument(int argc, char *argv[], string_buffer *error_buffer)
 	else
 		snprintf(error_message, sizeof(error_message) - sizeof(char), "textsorter: missing file operand");
 
-	add_string(error_buffer, error_message);
+	add_string(error_buffer, error_message, 22);
 	return false;
 }
 

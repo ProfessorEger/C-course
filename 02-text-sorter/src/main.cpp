@@ -41,5 +41,5 @@ int main(int argc, char *argv[])
 	
 	print_string_buffer(&error_buffer);
 
-	return 0;
+	return return_string_code(&error_buffer);
 }
