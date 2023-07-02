@@ -9,8 +9,55 @@
 string_buffer initialize_string_buffer(int number_of_strings, int string_size)
 {
 	string_buffer sb;
+
+    // TODO: designated initializers?
 	sb.number_of_strings = number_of_strings;
 	sb.string_size = string_size;
+
+    // NOTE: It's actually usually not a very good idea to use
+    //       dynamic memory allocation in error handling, because
+    //       memory allocation can itself fail, and then you'll
+    //       be left without error handling.
+
+
+    // The simplest way to achive this is to do:
+    // struct string_buffer {
+    //     string_... buffer[1024]; // ...
+    // };
+
+    // A bit harder ones if you wan't to have ability to create 
+    // differently sized string_buffers:
+
+    // 1. -----------------------------------------------------
+
+    // struct string_buffer {
+    //     string_...* buffer; // This is called flexible array
+    // };
+
+    // char buffer[...];
+    // string_buffer = { ... = buffer };
+
+    // 2. -----------------------------------------------------
+
+    // struct string_buffer {
+    //     string_... buffer[];
+    //     // This is called^^ flexible array (you can look it up)
+    // };
+
+    // char buffer_for_string_buffer[size]; // alloca is the same as...
+    // string_buffer *buffer = alloca(sizeof(string_buffer) + string_... * size);
+
+    // 3. -----------------------------------------------------
+
+    // #define create_string_buffer(size)                              \
+    //     struct string_buffer_##size {                               \
+    //         string_... buffer[size];                                \
+    //     };                                                          \
+    // 
+    // #define string_buffer(size) string_buffer_##size 
+
+    // You get the drill...
+
 	sb.buffer = (char *)malloc(number_of_strings * string_size * sizeof(char));
 	sb.info = (string_info *)malloc(number_of_strings * sizeof(string_info));
 

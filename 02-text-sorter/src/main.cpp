@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 		reverse_substrings_in_text(&source_text);
 		print_in_file(finished_file, &source_text);
 
-		return_original(&source_text);
+		return_original(&source_text); // TODO: naming, restore_*?
 		print_in_file(finished_file, &source_text);
 
 		if(finished_file != NULL)
