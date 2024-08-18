@@ -1,15 +1,13 @@
-#define NULL_CODE -1024 // TODO: Why you define this before include guard?
-                        // TODO: Just use const's instead of macros!
+ const int NULL_CODE = -1024;
 
 #ifndef FREE_LIST_H
 #define FREE_LIST_H
 
-typedef struct string_info
+typedef struct error
 {
 	string_info *next;	 // Указатель на следующую строку
 	string_info *prev;	 // Указатель на предыдущую  строку
-	bool string_is_busy; // Занятая ли строка
-	char *string;		 // Указатель на эту строку в string_buffer
+	//bool string_is_busy; // Занятая ли строка
     //    ^^^^^^ TODO: I'd rather make this just an internal
     //                 string buffer char string[SIZE];
 
@@ -57,22 +55,16 @@ typedef struct string_info
     // cache-friendliness).
 
 	int code;			 // код ошибки
-} string_info;
+	char string[];		 // Указатель на эту строку в string_buffer
+} error;
 
-
-// TODO: name, why is it a string_buffer?
-// struct_string_buffer_that_contains_number_of_strings_and_string_size_and_buffer_and_info_and_first_string_and_closing_string
-
-// A much better name would be, for example error_buffer
-
-typedef struct string_buffer // Хранит буффер для хранения строк и информацию о нем
+typedef struct error_buffer // Хранит буффер для хранения строк и информацию о нем
 {
 	int number_of_strings;
 	int string_size;
-	char *buffer;
-	string_info *info;			 // Массив информаци о каждой строке
-	string_info *first_string;	 // Указатель на информацию о первой строке
-	string_info *closing_string; // Указатель на информацию о последней строке
+	error *first_used_string;	 // Указатель на информацию о первой строке
+	error *first_free_string;
+	error error[];			 // Массив информаци о каждой строке
 
     // TODO: can you make this a cyclic buffer?
 
@@ -94,17 +86,16 @@ typedef struct string_buffer // Хранит буффер для хранени�
     // Use this to draw: │ │ │ ~~~~~~~~~~~~~~~~~~~~~ 0_0
     //                   └─┴─┘
 
-} string_buffer;
+} error_buffer;
 
 
 // TODO: try to write DOCS in doxygen format :) 
 
-string_buffer initialize_string_buffer(int number_of_strings, int string_size);
-
-// TODO: actual type of "string literal" is const char*
-void add_string(string_buffer *sb, char *new_string, int code);			 // Добавляет строку в string_buffer
-void remove_string(string_buffer *sb, char *unnecessary_string, int code); // Удаляет строку из string_buffer
-void print_string_buffer(string_buffer *sb);
-int return_string_code(string_buffer *sb);
+void initialize_string_buffer(error_buffer *sb, int number_of_strings, int string_size);
+void add_string(error_buffer *sb, const char *new_string, int code);			 // Добавляет строку в error_buffer
+void remove_string(error_buffer *sb, const char *unnecessary_string, int code); // Удаляет строку из error_buffer
+void print_string_buffer(error_buffer *sb);
+int return_string_code(error_buffer *sb);
+int find_string_buffer_size(int number_of_strings, int string_size);
 
 #endif

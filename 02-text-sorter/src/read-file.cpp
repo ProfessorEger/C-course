@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <sys/stat.h>
 
-void read_file(wchar_t **text_str, text *text, char *file_name, string_buffer *error_buffer)
+void read_file(wchar_t **text_str, text *text, char *file_name, error_buffer *error_buffer)
 {
 	FILE *source_file = my_fopen(file_name, "r", error_buffer);
 	allocate_memory_for_file(file_name, text_str, error_buffer);
@@ -13,7 +13,7 @@ void read_file(wchar_t **text_str, text *text, char *file_name, string_buffer *e
 	split_into_lines(text, text_str);
 }
 
-FILE *my_fopen(const char *file_name, const char *mode, string_buffer *error_buffer)
+FILE *my_fopen(const char *file_name, const char *mode, error_buffer *error_buffer)
 {
 
 	FILE *source_file = fopen(file_name, mode);
@@ -26,7 +26,7 @@ FILE *my_fopen(const char *file_name, const char *mode, string_buffer *error_buf
 	return source_file;
 }
 
-void allocate_memory_for_file(char *file_name, wchar_t **text_str, string_buffer *error_buffer)
+void allocate_memory_for_file(char *file_name, wchar_t **text_str, error_buffer *error_buffer)
 {
 	char error_message[error_buffer->string_size];
 	struct stat file_stat; // TODO: extract (make file_size function)
@@ -41,7 +41,7 @@ void allocate_memory_for_file(char *file_name, wchar_t **text_str, string_buffer
 		add_string(error_buffer, "textsorter: failed to allocate memory", 12);
 }
 
-void read_text(FILE *file, wchar_t **text_str, string_buffer *error_buffer)
+void read_text(FILE *file, wchar_t **text_str, error_buffer *error_buffer)
 {
     // TODO: a common style is to use spaces after statement's names:
     //       so if (...) instead of if(...)

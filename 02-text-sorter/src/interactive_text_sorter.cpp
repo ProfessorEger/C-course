@@ -1,7 +1,7 @@
 #include "interactive_text_sorter.h"
 #include <wchar.h>
 
-bool handle_input_argument(int argc, char *argv[], string_buffer *error_buffer)
+bool handle_input_argument(int argc, char *argv[], error_buffer *error_buffer)
 {
 	char error_message[error_buffer->string_size]; // VLA Variable Length Array
     // TODO: it's better to be cautios when using VLAs cause they
@@ -26,8 +26,8 @@ bool handle_input_argument(int argc, char *argv[], string_buffer *error_buffer)
 void print_in_file(FILE *file, text *text)
 {
 	if(text->text_array == NULL || file == NULL)
-		return; // TODO: need more space, can't breath!
-	for (int i=0;i < (*text).number_of_strings; i++)
-        //    ^ TODO: Need. More. Air. Can't ughh brea... *dies*
+		return;
+
+	for (int i = 0;i < (*text).number_of_strings; i++)
 		fwprintf(file, L"%ls\n", (*text).text_array[i].line);
 }
