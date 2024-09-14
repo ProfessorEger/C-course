@@ -6,22 +6,11 @@
 
 int main(void)
 {
-    int number_of_strings;
-    int string_size;
-
-    printf("Enter the number of strings: ");
-    scanf("%d", &number_of_strings);
-    getchar();
-
-    printf("Enter the size of each string: ");
-    scanf("%d", &string_size);
-    getchar();
-
-    string_buffer error_buffer = initialize_string_buffer(number_of_strings, string_size);
-	int max_input_size = string_size + 20;
+    string_buffer *error_buffer = initialize_string_buffer();
+	int max_input_size = STRING_BUFFER_STRING_SIZE + 20;
     char input[max_input_size];
     char command[15];
-    char new_string[string_size];
+    char new_string[STRING_BUFFER_STRING_SIZE];
     int code;
 
     while (1)
@@ -33,22 +22,19 @@ int main(void)
         if (sscanf(input, "%s %99s %d", command, new_string, &code) == 3)
         {
             if (strcmp(command, "a") == 0)
-                add_string(&error_buffer, new_string, code);
+                add_string(error_buffer, new_string, code);
             else if (strcmp(command, "r") == 0)
-                remove_string(&error_buffer, new_string, code);
+                remove_string(error_buffer, new_string, code);
             else
                 printf("Invalid command: %s\n", command);
         }
         else if (strcmp(input, "p") == 0)
-            print_string_buffer(&error_buffer);
+            print_string_buffer(error_buffer);
         else if (strcmp(input, "e") == 0)
             break;
         else
             printf("Invalid input format\n");
     }
-
-    free(error_buffer.buffer);
-    free(error_buffer.info);
 
     return 0;
 }

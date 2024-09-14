@@ -8,7 +8,7 @@
 
 // TODO: write docs? :|
 
-bool handle_input_argument (int argc, char *argv[], error_buffer *error_buffer);
+bool handle_input_argument (int argc, char *argv[], string_buffer *error_buffer);
 void print_in_file(FILE *file, text *text);
 
 #endif

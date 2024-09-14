@@ -1,9 +1,9 @@
 #include "interactive_text_sorter.h"
 #include <wchar.h>
 
-bool handle_input_argument(int argc, char *argv[], error_buffer *error_buffer)
+bool handle_input_argument(int argc, char *argv[], string_buffer *error_buffer)
 {
-	char error_message[error_buffer->string_size]; // VLA Variable Length Array
+	char error_message[STRING_BUFFER_STRING_SIZE]; // VLA Variable Length Array
     // TODO: it's better to be cautios when using VLAs cause they
     //       can become whatever size and possibly overflow stack
 
